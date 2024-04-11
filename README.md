@@ -7,6 +7,7 @@ In this project, let's build a **Speedometer** by applying the concepts we have 
     <img src="https://assets.ccbp.in/frontend/content/react-js/speedometer-ouput.gif" alt="speedometer output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
 </div>
 <br/>
+### Published Link https://tvspeedometer.ccbp.tech/
 
 ### Design Files
 
