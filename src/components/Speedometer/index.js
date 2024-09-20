@@ -1,60 +1,58 @@
-// Write your code here
-
 import {Component} from 'react'
 
 import './index.css'
 
 class Speedometer extends Component {
   state = {
-    count: 0,
+    speed: 0,
   }
 
-  onIncrementCount = () => {
-    const {count} = this.state
+  onClickApplyBrakeButton = () => {
+    const {speed} = this.state
 
-    if (count < 200) {
-      this.setState(prevState => ({count: prevState.count + 10}))
+    if (speed > 0) {
+      this.setState(prevState => ({speed: prevState.speed - 10}))
     }
   }
 
-  onDecrementCount = () => {
-    const {count} = this.state
+  onClickAccelerateButton = () => {
+    const {speed} = this.state
 
-    if (count > 0) {
-      this.setState(prevState => ({count: prevState.count - 10}))
+    if (speed < 200) {
+      this.setState(prevState => ({speed: prevState.speed + 10}))
     }
   }
 
   render() {
-    const {count} = this.state
+    const {speed} = this.state
 
     return (
-      <div className="bg">
-        <h1 className="head">SPEEDOMETER</h1>
-        <img
-          className="img"
-          src="https://assets.ccbp.in/frontend/react-js/speedometer-img.png"
-          alt="speedometer"
-        />
-        <h1 className="sub-head">
-          Speed is <span>{count}mph</span>
-        </h1>
-        <p className="info">Min Limit is 0mph, Max Limit is 200mph</p>
-        <div className="btn-cont">
-          <button
-            className="btn-1"
-            type="button"
-            onClick={this.onIncrementCount}
-          >
-            Accelerate
-          </button>
-          <button
-            className="btn-2"
-            type="button"
-            onClick={this.onDecrementCount}
-          >
-            Apply Brake
-          </button>
+      <div className="speedometer-app-container">
+        <div className="speedometer-container ">
+          <h1 className="heading">SPEEDOMETER</h1>
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/speedometer-img.png"
+            alt="speedometer"
+            className="speedometer-image"
+          />
+          <h1 className="speed-text">Speed is {speed}mph</h1>
+          <p className="speed-limits">Min Limit is 0mph, Max Limit is 200mph</p>
+          <div className="buttons-container">
+            <button
+              type="button"
+              className="accelerate-button button"
+              onClick={this.onClickAccelerateButton}
+            >
+              Accelerate
+            </button>
+            <button
+              type="button"
+              className="apply-brake-button button"
+              onClick={this.onClickApplyBrakeButton}
+            >
+              Apply Brake
+            </button>
+          </div>
         </div>
       </div>
     )
